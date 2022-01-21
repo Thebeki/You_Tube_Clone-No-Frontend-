@@ -10,8 +10,7 @@ from .views import *
 urlpatterns = [
 
     path("videolist/", VideoListAPIView.as_view(), name='videolist'),
-    path("commentlist/", CommentListAPIView.as_view(), name='commentlist'),
-    path("userlist/", UsersListAPIView.as_view(), name='userlist'),
     path("playlist/", PlayListListAPIView.as_view(), name='playlist'),
+    path("userlist/", UsersListAPIView.as_view(), name='userlist'),
+    path("commentlist/", CommentListAPIView.as_view(), name='commentlist'),
 ]
-

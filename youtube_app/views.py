@@ -9,19 +9,6 @@ from django_filters.rest_framework import DjangoFilterBackend
 # Create your views here.
 
 
-class VideoListAPIView(generics.ListAPIView):
-    queryset = Video.objects.all()
-    serializer_class = VideoSerializer
-    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
-    search_fields = ['id', '=name', 'creation_time_video']
-
-
-class CommentListAPIView(generics.ListAPIView):
-    queryset = Comment.objects.all()
-    serializer_class = CommentSerializer
-    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
-    search_fields = ['id', '=description', ]
-
 
 class UsersListAPIView(generics.ListAPIView):
     queryset = User.objects.all()
@@ -30,8 +17,22 @@ class UsersListAPIView(generics.ListAPIView):
     search_fields = ['id', '=name', ]
 
 
+class CommentListAPIView(generics.ListAPIView):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
+    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
+    search_fields = ['id', '=description', ]
+
 class PlayListListAPIView(generics.ListAPIView):
     queryset = Playlist.objects.all()
     serializer_class = PlaylistSerilaizer
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     search_fields = ['id', '=title', ]
+
+    
+class VideoListAPIView(generics.ListAPIView):
+    queryset = Video.objects.all()
+    serializer_class = VideoSerializer
+    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
+    search_fields = ['id', '=name', 'creation_time_video']
+
